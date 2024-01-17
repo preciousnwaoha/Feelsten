@@ -13,11 +13,11 @@ import {
   Animated,
 } from 'react-native';
 
-import Section from './Section';
+import Section from '../components/Section';
 
 import type {PropsWithChildren} from 'react';
 import type {ViewStyle} from 'react-native';
-import Inputer from './Inputer';
+import Inputer from '../components/Inputer';
 
 type FadeInViewProps = PropsWithChildren<{style: ViewStyle}>;
 
@@ -48,77 +48,72 @@ type HomeScreenProps = PropsWithChildren<{
 }>;
 
 const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
-
-
- const handleListen = () => {
-    console.log('listen')
- }
+  const handleListen = () => {
+    console.log('listen');
+  };
 
   return (
     <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={styles.text}>Hi, how do you feel right now?</Text>
+      </View>
 
-        <View>
-            <Text style={styles.text}>
-                Hi, how do you feel right now?
-            </Text>
-        </View>
+      <Inputer />
 
-        <Inputer />
-        
-      <View
-        style={styles.fadeAnim}>
-        <FadeInView
-          style={{
-          }}>
-            {/* <Button
+      <View style={styles.fadeAnim}>
+        <FadeInView style={{}}>
+          {/* <Button
         title="Listen"
         onPress={() => navigation.navigate('Profile', {name: 'Jane'})}
       /> */}
-      <TouchableHighlight onPress={handleListen} underlayColor="white">
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Listen</Text>
-          </View>
-        </TouchableHighlight>
+          <TouchableHighlight onPress={handleListen} underlayColor="white">
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>Listen</Text>
+            </View>
+          </TouchableHighlight>
         </FadeInView>
       </View>
 
-    
+      <Button
+        title="Go to Profile"
+        onPress={() => navigation.navigate('Profile', {name: 'Jane'})}
+        />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
     flex: 1,
-    display: "flex",
+    display: 'flex',
     justifyContent: 'center',
-    backgroundColor: "rgb(255, 128, 255)",
+    backgroundColor: 'rgb(255, 128, 255)',
     paddingHorizontal: 16,
     paddingBottom: 84,
-    },
-    text: {
-        fontSize: 64,
-        fontWeight: '700',
-        color: "black",
-        marginBottom: 32,
-    },
+  },
+  text: {
+    fontSize: 64,
+    fontWeight: '700',
+    color: 'black',
+    marginBottom: 32,
+  },
   fadeAnim: {
     // borderWidth: 1,
     width: 180,
   },
-    button: {
-        backgroundColor: "rgb(67, 28, 67)",
-        paddingHorizontal: 32,
-        paddingVertical: 18,
-        borderRadius: 32,
-        width: 180,
-        marginHorizontal: "auto",
-    },
-    buttonText: {
-        fontSize: 20,
-        color: '#fff',
-        textAlign: 'center',
-    },
+  button: {
+    backgroundColor: 'rgb(67, 28, 67)',
+    paddingHorizontal: 32,
+    paddingVertical: 18,
+    borderRadius: 32,
+    width: 180,
+    marginHorizontal: 'auto',
+  },
+  buttonText: {
+    fontSize: 20,
+    color: '#fff',
+    textAlign: 'center',
+  },
 });
 
 export default HomeScreen;

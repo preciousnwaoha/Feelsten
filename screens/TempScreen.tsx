@@ -18,12 +18,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-interface HomeScreenProps {
+interface TempScreenProps {
     navigation: any;
     route: any;
 }
 
-const HomeScreen: React.FC<HomeScreenProps> = ({navigation, route}) => {
+const TempScreen: React.FC<TempScreenProps> = ({navigation, route}) => {
     const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -57,4 +57,4 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation, route}) => {
 };
 
 
-export default HomeScreen;
+export default TempScreen;
